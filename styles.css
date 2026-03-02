@@ -1,0 +1,179 @@
+/* ensure padding and borders are included in element width/height */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffe4e9;
+  margin: 0;
+  padding: 0;
+  /* allow the page to grow taller than the viewport and scroll naturally */
+  width: 100%;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px; /* allow a bit more room on desktop */
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  margin: 20px auto; /* center horizontally and add top/bottom spacing */
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff69b4;
+  margin-bottom: 15px;
+}
+
+.tagline {
+  font-family: "Georgia", serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #c71585;
+  margin-bottom: 30px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.btn {
+  flex: 1;
+  margin: 0 10px;
+  padding: 12px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #ff85c1;
+  transform: translateY(-2px);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* reduce spacing between inputs */
+}
+
+input, textarea, select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+  /* make it look rectangular rather than square */
+  min-height: 60px; /* even smaller abstract box */
+}
+
+/* labels for form fields */
+label {
+  color: #000000;
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-row label {
+  width: 40%;
+  margin: 0;
+}
+
+.form-row input[type="file"] {
+  flex: 1;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(3px);
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+@media (max-width: 480px) {
+  .button-group {
+    flex-direction: column;
+  }
+  .btn {
+    margin: 10px 0;
+    width: 100%;
+  }
+}
+
+/* reduce vertical gaps for headings and abstract word count */
+section h2 {
+  margin: 8px 0; /* smaller than default */
+}
+
+#wordCount, #teamWordCount {
+  margin: 4px 0 12px; /* tighten around textarea */
+}
+
+.member-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.member-row input {
+  width: 100%;
+}
